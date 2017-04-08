@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+service EventMessage {
+	rpc SendEvent (EventPush) returns (EventPull) {}
+}
+
+message EventPush {
+	string some_json = 1;
+	int32 counter = 2;
+}
+
+message EventPull {
+	string some_json = 1;
+	int32 counter = 2;
+}

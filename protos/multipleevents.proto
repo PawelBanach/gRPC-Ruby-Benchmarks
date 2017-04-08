@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+service EventMessage {
+  // Sends multiple events
+  rpc SendEvent (stream EventPush) returns (stream EventPull) {}
+}
+
+message EventPush {
+	string some_json = 1;
+	int32 counter = 2;
+	int32 num_cli_event = 3;
+}
+
+message EventPull {
+	string some_json = 1;
+	int32 counter = 2;
+	int32 num_serv_event = 3;
+}
